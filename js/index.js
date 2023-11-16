@@ -6,7 +6,6 @@
 
         //gitHubあげる際には絶対消す！！！！！！
         const firebaseConfig = {
-
         };
 
         const app = initializeApp(firebaseConfig);
@@ -27,7 +26,11 @@
         document.getElementById('send').addEventListener('click', function () {
         const uname = document.getElementById('uname').value;
         const text = document.getElementById('text').value;
-        const date = document.getElementById('date').value;
+        let date = document.createElement("span");
+        date.className = "date"
+        const now = new Date();
+        const timeString = now.toLocaleString();
+        date.textContent = timeString;
 
         //まずは確認
         console.log(uname, 'unameの文字')
