@@ -80,4 +80,3 @@
         document.getElementById('output').innerHTML += html;
 
         })
-        
