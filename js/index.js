@@ -6,6 +6,12 @@
 
         //gitHubあげる際には絶対消す！！！！！！
         const firebaseConfig = {
+            apiKey: "AIzaSyCGM4cqnblC-jAppatI6HqNxCkKLXuxiRM",
+            authDomain: "gsdev26us07-fdc33.firebaseapp.com",
+            projectId: "gsdev26us07-fdc33",
+            storageBucket: "gsdev26us07-fdc33.appspot.com",
+            messagingSenderId: "61424458217",
+            appId: "1:61424458217:web:2f734a8c43ab7ea1775378"
         };
 
         const app = initializeApp(firebaseConfig);
@@ -29,7 +35,9 @@
         let date = document.createElement("span");
         date.className = "date"
         const now = new Date();
-        const timeString = now.toLocaleString();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}`;
         date.textContent = timeString;
 
         //まずは確認
@@ -44,7 +52,7 @@
         const msg = {
             uname: uname,
             text: text,
-            date: date,
+            date: date.textContent,
         }
 
         //firebaseにデータを送る処理です。
