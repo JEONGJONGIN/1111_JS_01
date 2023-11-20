@@ -17,15 +17,15 @@ input {
 
 textarea {
   width: 430px;
-  height: 40px;
   padding: 10px;
-  margin: 0 1px 0 0;
+  margin: 0 1px 10px 0;
   display: block;
   resize: none;
   float: left;
+  overflow-y: hidden;
 }
 
-.textarea {
+.textarea-container {
   text-align: center;
   margin: auto;
   padding: 0 0 0 0;
@@ -34,7 +34,7 @@ textarea {
 
 button {
   width: 69px;
-  height: 40px;
+  height: 35px;
   margin: 0 0 0 0;
   display: block;
   font-size: 16px;
@@ -42,7 +42,6 @@ button {
 }
 
 #output {
-  
   width: 500px;
   display: block;
   height: 500px;

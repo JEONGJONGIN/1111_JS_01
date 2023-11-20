@@ -6,6 +6,13 @@
 
         //gitHubあげる際には絶対消す！！！！！！
         const firebaseConfig = {
+            apiKey: "AIzaSyCGM4cqnblC-jAppatI6HqNxCkKLXuxiRM",
+            authDomain: "gsdev26us07-fdc33.firebaseapp.com",
+            databaseURL: "https://gsdev26us07-fdc33-default-rtdb.firebaseio.com",
+            projectId: "gsdev26us07-fdc33",
+            storageBucket: "gsdev26us07-fdc33.appspot.com",
+            messagingSenderId: "61424458217",
+            appId: "1:61424458217:web:2f734a8c43ab7ea1775378"
         };
 
         const app = initializeApp(firebaseConfig);
@@ -80,5 +87,14 @@
         //画面に表示するために埋め込む
         // $('#output').append(html)
         document.getElementById('output').innerHTML += html;
-
         })
+
+        document.getElementById('text').addEventListener('input', function () {
+            resizeTextarea();
+          });
+
+        function resizeTextarea() {
+            const textarea = document.getElementById('text');          
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+          };
