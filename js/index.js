@@ -11,6 +11,8 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app); //RealtimeDBに接続
         const dbRef = ref(db, "chat"); //RealtimeDB内の"chat"を使う
+        
+        const storage = firebase.storage();
 
         //データ登録(Click)
         // $('#send').on("click",function(){
@@ -26,6 +28,7 @@
         document.getElementById('send').addEventListener('click', function () {
         const uname = document.getElementById('uname').value;
         const text = document.getElementById('text').value;
+        let img = document.querySelector("img").src;
         let date = document.createElement("span");
         date.className = "date"
         const now = new Date();
@@ -33,6 +36,11 @@
         const minutes = now.getMinutes().toString().padStart(2, '0');
         const timeString = `${hours}:${minutes}`;
         date.textContent = timeString;
+
+        var file = document.querySelector('#imgfile').files[0];
+        var storageRef = storage.ref();
+        var saveroot = storageRef.child('image/' + file.name)
+        var upload = uploadroot.put(file)
 
         //まずは確認
         console.log(uname, 'unameの文字')
@@ -45,6 +53,7 @@
 
         const msg = {
             uname: uname,
+            img : img,
             text: text,
             date: date.textContent,
         }
@@ -71,11 +80,12 @@
             console.log(key, '塊')
 
             let html =`
-                <div class=${key}>
-                    <p>${msg.uname}</p>
-                    <p>${msg.date}</p>
-                    <p>${msg.text}</p>
-                    </div>
+                <li class=${key}>
+                    <span class="uname">${msg.uname}
+                    <img class="img" src=${msg.img}"></span>
+                    <span class="text">${msg.text}</span>
+                    <span class="date">${msg.date}</span>
+                    </li>
                 `
         //画面に表示するために埋め込む
         // $('#output').append(html)
