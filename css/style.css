@@ -8,7 +8,8 @@ h1 {
   font-size: 20px;
 }
 
-.input-container{
+button{
+  display: block;
 }
 
 input {
@@ -18,14 +19,10 @@ input {
   margin: 0 auto 10px;
 }
 
-.input-img-file{
-  padding-bottom: 40px;
-}
-
 img{
   margin-right:10px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 textarea {
@@ -38,6 +35,12 @@ textarea {
   overflow-y: hidden;
 }
 
+/* index.html用 */
+
+.input-img-file{
+  padding-bottom: 40px;
+}
+
 .textarea-container {
   text-align: center;
   margin: auto;
@@ -45,11 +48,10 @@ textarea {
   width: 500px; /* 원하는 폭으로 조정하세요 */
 }
 
-button {
+.send-button {
   width: 69px;
   height: 35px;
   margin: 0 0 0 0;
-  display: block;
   font-size: 16px;
   border-radius: 5px;
 }
@@ -65,9 +67,8 @@ button {
   overflow: scroll;
 }
 
-#output > div {
-  flex: 0 0 calc(33.33% - 10px); /* 3개의 열로 나누고 간격을 두기 위해 33.33%로 설정 */
-  margin: 150px; /* 열 간의 간격을 설정 */
+#output > li {
+  margin: 15px; /* 열 간의 간격을 설정 */
   box-sizing: border-box;
 }
 
@@ -75,4 +76,20 @@ button {
 .uname, .date, .text {
   margin: 0;
   padding: 5px;
+}
+
+/* login.html,join.html 用 */
+
+.btn{
+  height: 40px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.jo-4{
+  text-align: center;
+}
+
+.li-4{
+  text-align: center;
 }
