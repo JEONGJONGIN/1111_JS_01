@@ -1,8 +1,11 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-        import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
+        import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved } 
             from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
-        // Your web app's Firebase configuration
+        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } 
+            from "https://www.gstatic.com/firebasejs/9.1.0/firebase-storage.js";
+        
+            // Your web app's Firebase configuration
 
         //gitHubあげる際には絶対消す！！！！！！隠す！！
         const firebaseConfig = {
@@ -12,7 +15,7 @@
         const db = getDatabase(app); //RealtimeDBに接続
         const dbRef = ref(db, "chat"); //RealtimeDB内の"chat"を使う
         
-        const storage = firebase.storage();
+        const storage = getStorage(app);
 
         //データ登録(Click)
         // $('#send').on("click",function(){
@@ -28,7 +31,6 @@
         document.getElementById('send').addEventListener('click', function () {
         const uname = document.getElementById('uname').value;
         const text = document.getElementById('text').value;
-        let img = document.querySelector("img").src;
         let date = document.createElement("span");
         date.className = "date"
         const now = new Date();
@@ -38,9 +40,14 @@
         date.textContent = timeString;
 
         var file = document.querySelector('#imgfile').files[0];
-        var storageRef = storage.ref();
-        var saveroot = storageRef.child('image/' + file.name)
-        var upload = uploadroot.put(file)
+        var storageRootRef = storageRef(storage);
+        var uploadroot = storageRef(storageRootRef, 'image/' + file.name);
+        var upload = uploadBytes(uploadroot,file)
+        const img = file
+
+        getDownloadURL(upload).then((url) => {
+            img = url;
+        });
 
         //まずは確認
         console.log(uname, 'unameの文字')
