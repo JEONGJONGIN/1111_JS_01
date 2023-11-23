@@ -12,7 +12,6 @@
 
         //gitHubあげる際には絶対消す！！！！！！隠す！！
         const firebaseConfig = {
-
         };
 
         //ログイン機能
@@ -31,7 +30,10 @@
             })
             .catch((error) => {
               console.log('ログイン失敗')
+              alert('メールアドレスもしくはパスワードに誤りがあります。')
               const errorCode = error.code;
               const errorMessage = error.message;
             });
-        });
+            document.getElementById('email-signIn').value = "";
+            document.getElementById('pw-signIn').value = "";
+          });
