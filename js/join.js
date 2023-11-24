@@ -12,6 +12,7 @@
 
         //gitHubあげる際には絶対消す！！！！！！隠す！！
         const firebaseConfig = {
+       
         };
 
 
@@ -26,6 +27,7 @@
           createUserWithEmailAndPassword(getAuth(app), signUpEmail, signUpPassword).then((result)=>{
             console.log(result);
             console.log(result.user);
+            window.location.href = "index.html";//新規加入成功しindex.jsを起動
           })
           .catch((error) => {
             console.log('error')

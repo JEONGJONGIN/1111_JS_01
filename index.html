@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>チャットアプリ_シンプル</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
 
     <h1>チャットアプリ</h1>
     <!-- コンテンツ表示画面 -->
-    <div>
+    <div class="wrapper">
         <!-- 各場所にidを設定しましょう -->
         <div class="input-container">
             <!-- <img class="user-img" id="img" src="https://img.freepik.com/premium-photo/a-cute-little-character-with-a-face-and-a-smile-on-his-face_902049-15707.jpg" alt=""> -->
@@ -24,10 +24,12 @@
         <!-- <div>
             <input id="date" type="datetime-local" placeholder="名前を入力してください">
         </div> -->
-        <div id="output"></div>
+        <div class="output-area" id="output"></div>
         <div class="textarea-container">
-            <textarea id="text" rows="1" placeholder="文章を入力してください"></textarea>
+          <span>
+            <textarea class="chatting-input" id="text" placeholder="文章を入力してください"></textarea>
         <button class="send-button" id="send">送信</button>
+          </span>
         </div>
         <!-- style.cssに "overflow: auto;"を書いてみましょう！※最後に -->
     </div>

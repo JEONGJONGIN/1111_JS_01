@@ -12,6 +12,7 @@
 
         //gitHubあげる際には絶対消す！！！！！！隠す！！
         const firebaseConfig = {
+
         };
 
         //ログイン機能
@@ -26,11 +27,12 @@
               // Signed in 
               const user = userCredential.user;
               console.log(user);
+              window.location.href = "index.html"//ログイン成功しindex.jsを起動
               // ...
             })
             .catch((error) => {
-              console.log('ログイン失敗')
               alert('メールアドレスもしくはパスワードに誤りがあります。')
+              console.log('ログイン失敗')
               const errorCode = error.code;
               const errorMessage = error.message;
             });
