@@ -12,7 +12,6 @@
 
         //gitHubあげる際には絶対消す！！！！！！隠す！！
         const firebaseConfig = {
-       
         };
 
 

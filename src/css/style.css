@@ -135,10 +135,10 @@ textarea {
 }
 
 .profile .img{
-  border-radius: 50%;
+  border-radius: 70%;
   object-fit: cover;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  max-height: 60px;
   flex: 1;
 }
 
